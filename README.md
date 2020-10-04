@@ -106,6 +106,7 @@ res1: scala.collection.immutable.List.type = scala.collection.immutable.List$@2d
 def hoge(): (Int, Int) = (1, 3)
 ```
 
+# コレクション
 
 
 
