@@ -87,9 +87,24 @@ Scalaにはプリミティブ型が存在しない。
 ## リテラル
 ソースに値を直接書く書き方。`new`でインスタンス化を行わない略記。
 
+# タプルにチャレンジ
+複数の異なる型を返したいときに便利！
 
+### コラム 基本的に List よりも Seq を使おう
+```scala
+scala> Seq
+res0: scala.collection.Seq.type = scala.collection.Seq$@5680a178
 
+scala> List
+res1: scala.collection.immutable.List.type = scala.collection.immutable.List$@2d6a9952
+```
+`Seq`は`scala.collection`下にあるので`Vector`だろうと`MutableList`だろうと`Seq`。
+取りうる型の範囲を狭めてしまう`List`などより`Seq`を指定した方がよい。
 
+型アノテーションはこうかく
+```scala
+def hoge(): (Int, Int) = (1, 3)
+```
 
 
 
