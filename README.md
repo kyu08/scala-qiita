@@ -116,8 +116,18 @@ new { val name: String } with Job
 
 実装を持つことができる。
 
+# Traversable
+## scala.collention.Traversable
+このトレイトはコレクションの中でも上位トレイトで重要なメソッドを持っている
+コレクション階層の基本となるトレイト。SeqだけではなくSet, Map もこのトレイトをミックスインしている。
+`foreach`だけが抽象メソッドで、このメソッド以外はTraversableLikeに実装が用意されている。
 
-
+### collect
+map と filter を合わせたやつ
+```scala
+Seq(1, 2, 3) collect { case i if (i % 2 == 0) => i }
+// List(2)
+```
 
 
 
