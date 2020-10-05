@@ -129,8 +129,28 @@ Seq(1, 2, 3) collect { case i if (i % 2 == 0) => i }
 // List(2)
 ```
 
+# 第11章 Seq
+## scala.collection.immutable.Seq
+### idDefinedAt
+指定した値が添字に存在するか判定する
+```scala
+Seq(1, 3, 4) isDefinedAt (2)
+// false
 
+Seq(1, 3, 4) isDefinedAt (3)
+// true
+```
 
+### lengthCompare
+要素数が指定した値と比較して
+- 少ない場合 -1
+- 同じ場合 0
+- 多い場合 1
+
+```scala
+Seq(1, 2, 3) lengthConpare (2)
+// 1
+```
 
 
 
