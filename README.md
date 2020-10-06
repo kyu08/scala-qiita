@@ -175,6 +175,82 @@ Set(1,2) - 22 // ってやってもエラーにはならず
 // Set(1,2) が返される
 ```
 
+# 第13章 Map
+## get
+キーに対応する値をOptionで返す
+
+```scala
+Map(1 -> "a", 2 -> "b", 3 -> "c") get (1)
+// Some(a)
+```
+## (key)
+キーに対応する値を返す
+```scala
+Map(1 -> "a", 2 -> "b", 3 -> "c")(1)
+// "a"
+```
+
+## getOrElse
+キーに対応する値を返す。なければデフォルト値を返す。
+```scala
+Map(1 -> "a", 2 -> "b", 3 -> "c") getOrElse (1, "d")
+// Some(a)
+```
+
+## 追加と更新
+### + (要素の追加)
+新しいキーバリューのペアを含む新しいMapを返す
+```scala
+Map(1 -> "a", 2 -> "b", 3 -> "c") + (1, "d")
+```
+
+### ++ (Map同士の結合) 
+
+## 削除
++ と -
+++ と --
+が対応する。
+
+## サブコレクション生成
+### keys
+キーのiterableをかえす
+
+```scala
+Map(1-> "ichi", 2 -> "ni").keys
+// Set(1, 2)
+```
+
+### values
+値のiterableを返す
+```scala
+Map(1-> "ichi", 2 -> "ni").values
+// MapLike.DefaultValuesIterable(ichi, ni)
+```
+
+## 変形
+### filterKeys
+関数を満たすものだけのMapを返す
+```scala
+Map(1 -> "ichi", 2 -> "ni", 3 -> "san") filterKeys (_ % 2 == 1)
+// Map(1 -> "ichi", 3 -> "san")
+```
+
+### mapValues
+関数を適用したMapを返す
+```scala
+Map(1 -> "ichi", 2 -> "ni", 3 -> "san") mapValues (_ + "hoge")
+// Map(1 -> "ichihoge", 2 -> "nihoge", 3 -> "sanhoge")
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
