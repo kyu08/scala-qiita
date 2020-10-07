@@ -242,6 +242,43 @@ Map(1 -> "ichi", 2 -> "ni", 3 -> "san") mapValues (_ + "hoge")
 // Map(1 -> "ichihoge", 2 -> "nihoge", 3 -> "sanhoge")
 ```
 
+# 第14章 Option型とnull
+## Option とは
+値があるかないかを表す型。箱のようなイメージ。
+### Some
+値があることを示す型。値を持っている。
+
+### None
+値がないことを表す型。
+
+## 値を取り出す
+get で取り出せる
+
+(Noneな値).get はエラーになるので判定が必要。
+
+```scala
+def check(o: Option[String]) = {
+  o match {
+    Some(s) => println(s)
+    None => println("None yade.")
+  }
+}
+```
+
+こんなかんじでOptionの値を取り出す時はgetをではなく**パターンマッチを使って取り出そう！**
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
