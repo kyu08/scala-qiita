@@ -381,12 +381,48 @@ person match {
 }
 ```
 
+# カリー化と部分適用
+カリー化と部分適用は違う。
 
+## カリー化
+**複数の引数をとる関数を、1つの引数をとる関数のチェーンに変換すること**
+```scala
+val add = (x: Int, y: Int, z: Int) => x + y + z
+```
+っていう関数があったときに
+```scala
+val addCurried = add.curried
+```
+ってやるとカリー化できる。
 
+```scala
+val addCurriedWithX = addCurried(1)
+val addCurriedWithY = addCurriedWithX(2)
+val addCurriedWithZ = addCurriedWithY(3)
+println(addCurriedWithZ) // 6
+```
 
+こんな風に利用する。
 
+### .curried を使う以外の方法
+バラしてかく方法や
+```scala
+def addScalaCurried(x: Int)(y: Int)(z: Int) = x + y + z
+```
 
+`_`を使う方法がある。
+```scala
+val curried = addScalaCurried _
+```
 
+## 部分適用
+**複数の引数をとる関数に対して、一部の引数に値を束縛した関数を返すこと。**
 
-
+```scala
+def addPartial(x: Int, y: Int, z: Int) = x + y + z
+def addPartial(x:Int, y:Int, z:Int) = x + y + z
+val addPartialWithZ = addPartial(_:Int, _:Int, 5)
+println(addPartialWithZ(1,2)) // 8
+```
+カリー化は引数のチェーンだったけど、部分適用はいきなり第3引数を与えたりできる。
 
