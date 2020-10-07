@@ -3,7 +3,7 @@ package ScalaQiita
 object ScalaQiita {
   def main(args: Array[String]): Unit ={
     println("\n-----------------------")
-    CaseClass.main()
+    PetternMatch.main()
     println("-----------------------\n")
   }
 }

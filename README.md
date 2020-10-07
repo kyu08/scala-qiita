@@ -342,10 +342,44 @@ println(a eq a3) // false
 - 全フィールドの等価性を確認する必要がある
 - 識別子となるフィールドだけ確認すればOK
 
+# パターンマッチ
+## シーケンスパターン
 
+```scala
+val seq = Seq(1,2,3)
 
+seq match {
+  case Seq(1, a, _*) => a
+  case _ => 0
+}
+```
 
+**`_*`は0こ以上の任意の要素を表す。**(めっちゃ便利やん)
 
+## タプルと使う
+```scala
+val tuple = (1, 2, "OK")
+
+tuple match {
+  case (1, 2, x) => x
+  case _ => "None"
+}
+```
+
+## コンストラクタパターン
+ケースクラスと一緒に使える！(これもすっきりかけてよさそう！)
+
+```scala
+case class Person(val id: Int, val name: String, val food: String)
+
+val person = Person(1, "john", "fruit")
+
+person match {
+  case Person(_, "john", "fruit") => "OK"
+  case Person(_, "jonn", _) => "BAD"
+  case _ => "NO"
+}
+```
 
 
 
